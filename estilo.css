@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative;
+  background: radial-gradient(circle at top, #fef9c3, #fef08a, #fde047);
+}
+
+/* Modos de fondo */
+body.bg-alerta {
+  background: radial-gradient(circle at center, #fed7aa, #fde68a, #fef08a);
+}
+
+body.bg-triste {
+  background: radial-gradient(circle at center, #f1f5f9, #e2e8f0, #cbd5e1);
+}
+
+body.bg-dorado {
+  background: radial-gradient(circle at top, #fef08a, #facc15, #eab308);
+}
+
+/* Partículas flotantes de fondo */
+.floating-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.icon-float {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.35;
+  animation: floatFlower linear infinite;
+}
+
+@keyframes floatFlower {
+  0% { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0.1; }
+  50% { opacity: 0.45; }
+  100% { transform: translateY(-15vh) rotate(360deg) scale(1.1); opacity: 0; }
+}
+
+/* Tarjeta principal */
+.recipiente {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 38px 28px;
+  border-radius: 28px;
+  box-shadow: 0 18px 38px rgba(202, 138, 4, 0.22);
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  border: 2px solid #fef08a;
+  animation: popIn 0.4s ease-out forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.92) translateY(15px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.card-icon {
+  font-size: 4rem;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: softBounce 2.5s infinite ease-in-out;
+}
+
+@keyframes softBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.06); }
+}
+
+h1 {
+  color: #854d0e;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+p {
+  color: #713f12;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.badge {
+  display: inline-block;
+  background: #fef08a;
+  color: #a16207;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border: 1px solid #facc15;
+}
+
+/* Botones */
+.boton-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  min-height: 60px;
+}
+
+.btn {
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-si {
+  background: linear-gradient(135deg, #eab308, #ca8a04);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(202, 138, 4, 0.35);
+}
+
+.btn-si:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(202, 138, 4, 0.45);
+}
+
+.btn-no {
+  background: #fefce8;
+  color: #a16207;
+  border: 1.5px solid #fde047;
+}
+
+.btn-no:hover {
+  background: #fef9c3;
+}
+
+/* Tarjeta especial con mensaje emotivo */
+.dedicatoria {
+  background: linear-gradient(135deg, #fefce8, #fef08a);
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin-bottom: 22px;
+  text-align: center;
+  border: 1.5px dashed #ca8a04;
+  color: #854d0e;
+  line-height: 1.6;
+  font-size: 1rem;
+}
