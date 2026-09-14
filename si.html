@@ -48,12 +48,12 @@
 </head>
 <body class="bg-dorado">
   <div class="floating-bg">
-    <span class="icon-float" style="left: 8%; animation-duration: 9s;">🌻</span>
-    <span class="icon-float" style="left: 28%; animation-duration: 12s; animation-delay: 1.5s;">✨</span>
-    <span class="icon-float" style="left: 55%; animation-duration: 8s; animation-delay: 2s;">💛</span>
-    <span class="icon-float" style="left: 78%; animation-duration: 11s; animation-delay: 0.5s;">🌼</span>
-    <span class="icon-float" style="left: 92%; animation-duration: 13s; animation-delay: 3s;">🌻</span>
-  </div>
+  <span class="icon-float" style="left: 8%; animation-duration: 9s;">🌻</span>
+  <span class="icon-float" style="left: 26%; animation-duration: 12s; animation-delay: 1.5s;">🦷✨</span>
+  <span class="icon-float" style="left: 52%; animation-duration: 8s; animation-delay: 2s;">💛</span>
+  <span class="icon-float" style="left: 74%; animation-duration: 11s; animation-delay: 0.5s;">🌼</span>
+  <span class="icon-float" style="left: 90%; animation-duration: 13s; animation-delay: 3s;">🌻</span>
+</div>
 
   <div class="recipiente" style="max-width: 500px;">
     <div class="flower-stage">
@@ -62,23 +62,20 @@
     <button class="replay-btn" onclick="reiniciarFlor()">🌻 Ver florecer de nuevo</button>
 
     <div>
-      <span class="badge">Flor Amarilla Eterna ✨</span>
-    </div>
+      <div class="badge">Flor Amarilla Eterna 🦷✨</div>
+<h1>¡Para ti, Shirley! 🌻</h1>
 
-    <h1>¡Para ti, Shirley! 🌻</h1>
-
-    <div class="dedicatoria">
+<div class="dedicatoria">
   <p>
-    El amarillo simboliza calidez, vitalidad y el brillo de quienes dejan una huella bonita donde van. 
-    Ese brillo se parece mucho a ti: en tu constancia, tus ganas de salir adelante y la autenticidad con la que haces cada cosa.
+    Sé la paciencia, la precisión y la vocación que le metes a cada día entre instrumental, materias pesadas y guardias. Es admirable ver la pasión con la que te esfuerzas por tu carrera.
   </p>
   
-  <p style="margin-top: 14px; font-weight: 600; color: #a16207;">
-    Nunca dudes de tu talento ni de lo lejos que vas a llegar con todo lo que te propongas.
+  <p style="margin-top: 14px; font-weight: 600; color: #854d0e;">
+    Tú te encargas de cuidar sonrisas, pero si hoy pensaste que te ibas a quedar sin tus flores amarillas, te equivocaste. Yo jamás iba a permitir que la encargada de alegrar a los demás se quedara sin un motivo para sonreír.
   </p>
 
   <p style="margin-top: 14px; font-weight: 800; font-size: 1.05rem; color: #78350f;">
-    Por eso esta flor no está hecha de pétalos comunes, sino de cada letra de tu nombre: para que nunca se marchite y te recuerde siempre que naciste para brillar a lo grande. ¡Feliz día de las flores amarillas, Shirley! 💛🌻✨
+    Este girasol está construido letra por letra con tu nombre para que nunca se marchite, igual que ese talento tuyo. ¡Feliz día de las flores amarillas, Dra. Shirley! 💛🦷🌻
   </p>
 </div>
 
@@ -384,14 +381,15 @@
           });
         }
 
-        // Corazón central con destello
+        // Destello central con guiño a odontología
         if (progresoFlor > 0.7) {
-          ctx.font = `${20 * Math.min(1, (progresoFlor - 0.7) / 0.3)}px sans-serif`;
+          const escalaEmoji = Math.min(1, (progresoFlor - 0.7) / 0.3);
+          ctx.font = `${18 * escalaEmoji}px sans-serif`;
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillText("💛", 0, 1);
+          // Emoji de diente sonriente y corazón
+          ctx.fillText("🦷💛", 0, 1);
         }
-
         ctx.restore();
       }
 
