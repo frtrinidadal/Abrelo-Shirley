@@ -27,9 +27,23 @@
   ¿Aceptas tu flor hecha a tu medida? 🌻
 </p>
     <div class="boton-contenedor">
-      <a href="si.html" class="btn btn-si">¡Claro que sí! 💛</a>
+      <a href="#" class="btn btn-si" onclick="aceptarFlores(event)">¡Claro que sí! 💛</a>
       <a href="no2.html" class="btn btn-no">No, gracias...</a>
     </div>
   </div>
+<script>
+  function aceptarFlores(event) {
+    // 1. Prevenir que la página cambie inmediatamente
+    // ¡Ojo! Es preventDefault con 'L' minúscula, no con '1'
+    event.preventDefault();
+
+    // 2. Guardar la instrucción en el navegador: "reproducir música"
+    // ¡Ojo! Es localStorage con 'L' minúscula, no con '1'
+    localStorage.setItem('reproducirMusica', 'true');
+
+    // 3. Ahora sí, redirigir a la página final
+    window.location.href = 'si.html';
+  }
+</script>
 </body>
 </html>

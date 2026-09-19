@@ -420,6 +420,41 @@
     canvas.addEventListener("mouseleave", soltar);
     canvas.addEventListener("touchmove", mover);
     canvas.addEventListener("touchend", soltar);
+
+    // EN SI.HTML (dentro del script principal, al final)
+
+// Función para intentar reproducir el audio
+function intentarReproducirAudio() {
+  const audio = document.getElementById('musicaFondo');
+  
+  // Verificamos si la instrucción 'reproducirMusica' está guardada
+  if (localStorage.getItem('reproducirMusica') === 'true') {
+    
+    // Intentamos reproducir
+    audio.play().then(() => {
+      // Si tiene éxito, borramos la instrucción para que no suene
+      // automáticamente si recarga la página más tarde.
+      localStorage.removeItem('reproducirMusica');
+      console.log("Música iniciada con éxito.");
+    }).catch(error => {
+      // Si el navegador aún lo bloquea (raro si viene de un clic),
+      // fallará silenciosamente. La música sonará cuando interactúe con el canvas.
+      console.log("La reproducción automática fue bloqueada por el navegador:", error);
+    });
+  }
+}
+
+// Ejecutar la función cuando la ventana termine de cargar
+window.addEventListener('load', intentarReproducirAudio);
+
+// Opcional: También reproducir si hace clic en el canvas del girasol (como respaldo)
+canvas.addEventListener('click', () => {
+  document.getElementById('musicaFondo').play();
+});
   </script>
 </body>
+<audio id="musicaFondo" loop preload="auto">
+    <source src="Flores_amarillas.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
 </html>
