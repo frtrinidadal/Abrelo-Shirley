@@ -451,8 +451,48 @@ window.addEventListener('load', intentarReproducirAudio);
 canvas.addEventListener('click', () => {
   document.getElementById('musicaFondo').play();
 });
+
+const audio = document.getElementById('musicaFondo');
+const btnMusica = document.getElementById('btnMusicaFlotante');
+
+// 1. Intento automático (funciona en PC y en algunos Android)
+audio.play().then(() => {
+  btnMusica.style.display = 'none'; // Si logró reproducir solo, oculta el botón
+}).catch(() => {
+  // En móviles salta aquí por bloqueo del navegador
+  btnMusica.textContent = '🎵 Activar música';
+});
+
+// 2. Si toca el botón flotante
+btnMusica.addEventListener('click', () => {
+  audio.play();
+  btnMusica.style.display = 'none';
+});
+
+// 3. Respaldo: si toca cualquier parte de la pantalla, también arranca
+document.body.addEventListener('touchstart', function activar() {
+  audio.play();
+  btnMusica.style.display = 'none';
+  document.body.removeEventListener('touchstart', activar);
+}, { once: true });
+
   </script>
 </body>
+<button id="btnMusicaFlotante" style="
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999;
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+">🎵 Música</button>
 <audio id="musicaFondo" loop preload="auto">
     <source src="Flores_amarillas.mp3" type="audio/mpeg">
     Tu navegador no soporta el elemento de audio.
